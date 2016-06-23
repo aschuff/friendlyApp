@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>friend.ly</title>
     <link rel="normalize" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css">
-    <link rel="bootstrap" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="/sass/main.css">
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="./sass/main.css">
+</head>
 
-  </body>
+<body>
+    <header>
+      <!-- HEADER -->
+      <div class="friendlyApp">
+        <h1>friend.ly</h1>
+      </div>
+      <!-- NAV BAR -->
+      <div class="nav-bar">
+        <ul class="nav nav-tabs">
+            <li role="friendFeed" class="active"><a href="#">My Feed</a></li>
+            <li role="details"><a href="#">About Friends</a></li>
+            <li role="hobby"><a href="#">Hobbies</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- COLUMN 1: FRIENDS LIST -->
+    <div class="row">
+      <div class="col-sm-4">Friends List</div>
+      <div class="col-sm-8">Add Me</div>
+    </div>
+
+    <script src="./js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</body>
+
 </html>
