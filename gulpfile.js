@@ -1,6 +1,5 @@
 var gulp = require('gulp'); // npm install gulp
 var sass = require('gulp-sass'); // npm install gulp-sass
-var uglify = require('gulp-uglify'); // npm install gulp-uglify
 var minify = require('gulp-minify'); // npm install gulp-minify
 var htmlmin = require('gulp-htmlmin'); //// npm install gulp-htmlmin
 // var concat = require('gulp-concat');
@@ -18,11 +17,11 @@ gulp.task('default', ['html', 'css', 'js'])
 
 // SASS TO CSS
 gulp.task('css', function (){
-  gulp.src('./scss/styles.scss')
+  gulp.src('./sass/styles.scss')
   .pipe(sass())
   .pipe(gulp.dest('./public'))
   // .pipe(validate())
-  .pipe(gulp.dest('./temp'));
+  // .pipe(gulp.dest('./temp'));
 });
 
 // MINIFY
@@ -41,15 +40,14 @@ gulp.task('js', function(){
     .pipe(babel({
       presets: ['es2015']
       }))
-    .pipe('browserify')
-    .pipe('uglify')
+    .pipe(browserify())
     .pipe(beautify({indent_Size: 2}))
     .pipe(gulp.dest('./public'))
 });
 
 // WATCH CHANGES
-gulp.task('watch', function(){
-  gulp.watch('./scss/styles.scss', ['css']);
+gulp.task('watch', function(){ //npm install gulp-watch
+  gulp.watch('./sass/styles.scss', ['css']);
   gulp.watch('./index.html', ['html']);
   gulp.watch('./js/app.js', ['js']);
 });
