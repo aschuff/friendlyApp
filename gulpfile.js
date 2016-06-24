@@ -47,7 +47,7 @@ gulp.task('js', function(){
 
 // WATCH CHANGES
 gulp.task('watch', function(){ //npm install gulp-watch
-  gulp.watch('./sass/styles.scss', ['css']);
+  gulp.watch('./sass/*.scss', ['css']);
   gulp.watch('./index.html', ['html']);
   gulp.watch('./js/app.js', ['js']);
 });
