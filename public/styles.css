@@ -1,23 +1,30 @@
 html, body {
   width: 90%; }
 
-.mainContainer {
+#mainContainer {
   width: 80%;
-  height: 100%; }
+  height: 100%;
+  display: inline-flex; }
 
 header, footer {
   text-align: center;
   background-color: black;
   color: white; }
 
+.hidden {
+  display: none; }
+
 #friendFeed {
   width: 55%;
-  display: inline-flex;
+  display: inline-block;
   overflow: hidden;
   float: right;
   position: absolute;
-  margin-left: 30%; }
+  margin-left: 5%;
+  color: black; }
 
 #friendsList {
-  width: 30%;
-  border-right: solid gray 2px; }
+  width: 35%;
+  height: 100%;
+  border-right: solid gray 2px;
+  overflow: hidden; }

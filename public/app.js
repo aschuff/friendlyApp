@@ -29,7 +29,7 @@
             setInterval(getAFriend, 2000);
         });
         var friendsArray = [];
-        var request = new XMLHttpRequest();
+        var realFriends = [];
         // GET FRIENDS FROM API AND INSERT IT INTO THE DOM
         function getAFriend() {
             // THIS IS THE AJAX REQUEST
@@ -47,52 +47,48 @@
                     var buttonName = 'Add me';
                     var friendOptions = document.createElement('div');
                     friendOptions.innerHTML = '<div class="friends">\n                                      <img src=\'' + friend.picture.medium + '\'/>\n                                      <h3>' + friend.name.first + ' ' + friend.name.last + '</h3>\n                                      <button>' + buttonName + '</button>\n                                      </div>';
-                    // ADDED A CLASS OF ROW TO friendOptions DIV
-                    friendOptions.classList.add('newFriendRow');
-                    // GRABBED SECTION CALLED friendFeed; MADE IT = VAR CALLED FEED
-
-                    var button = friendOptions.querySelector('button');
-                    button.addEventListener('click', function() {
-                        console.log(friend.name.first + ' was clicked');
-
-                        // ADD THE PERSON CLICKED ON
-                        // getAFriend(friend);
-                        addFriend(friend);
-                    });
+                    // friendOptions.classList.add('newFriendRow')
                     var feed = document.getElementById('friendFeed');
                     // APPENDED friendOptions TO THE FEED
                     feed.appendChild(friendOptions);
                     friendsArray.push(friend);
+
+                    var button = friendOptions.querySelector('button');
+                    button.addEventListener('click', function() {
+                        console.log(friend.name.first + ' was clicked');
+                        // ADD THE PERSON CLICKED ON
+                        addFriend(friend);
+                        // HIDE PERSON CLICKED
+                        friendOptions.remove();
+                        friendsArray = friendsArray.filter(function(element) {
+                            if (friend.name.first === element.name.first) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        });
+                        realFriends.push(friend);
+                        friend.hobbies = ['swimming', 'drawing', 'fishing'];
+                        console.log(friend.hobbies);
+                        // let hobby = document.getElementById('hobbiesView')
+                        // hobby[0].addEventListener('click', function(){
+                        //   console.log('clicked hobby tab');
+                        // }
+                    });
                 } else {
                     console.log('skipping this person');
                 }
-
-                // LOGGING THE DATA
-                // console.log(friendsArray);
-
-                // MADE A DIV ELEMENT IN THE HTML CALLED friendOptions
-
-                // PUT FRIEND'S NAME IN THE DIV IN THE HTML
-
-                //  EVENT HANDLER: BUTTON
-
-                //NEED TO REMOVE THE PERSON CLICKED ON
-
-                // APPEND THE CHILD TO THE PARENT
-                // let parent = document.getElementById('friendFeed');
-                // parent.appendChild(child);
             });
             // REQUESTING THE API
             request.open('GET', 'https://randomuser.me/api/');
             // USING THE api
             request.send();
         }
-
         // FRIENDS LIST
         function addFriend(friend) {
             var myFriendsList = document.getElementById('friendsList');
             var myFriends = document.createElement('div');
-            myFriends.innerHTML = '<div class="myFriends">\n                      <img src= \'' + friend.picture.medium + '\' />\n                      <div class = \'info\'>\n                        <h3>' + friend.name.first + ' ' + friend.name.first + '</h3>\n                        <h4>Friends since June 23, 2016</h4>\n                        </div>\n                      </div>';
+            myFriends.innerHTML = '<div class="myFriends">\n                      <img src= \'' + friend.picture.medium + '\' />\n                      <div class = \'info\'>\n                        <h3>' + friend.name.first + ' ' + friend.name.last + '</h3>\n                        <h4>Friends since June 23, 2016</h4>\n                        </div>\n                      </div>';
             myFriendsList.appendChild(myFriends);
         }
     }, {}]

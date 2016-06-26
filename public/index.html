@@ -18,38 +18,40 @@
         <!-- NAV BAR -->
         <div class="nav-bar">
             <ul class="nav nav-tabs">
-                <li role="friendFeed" class="active"><a href="#">My Feed</a></li>
-                <li role="details"><a href="#">About Friends</a></li>
-                <li role="hobby"><a href="#">Hobbies</a></li>
+                <li id="friendFeed"role="friendFeed" class="active"><a href="#">My Feed</a></li>
+                <li id="detailsView"role="details"><a href="#">Details</a></li>
+                <li id="hobbiesView"role="hobby"><a href="#">Hobbies</a></li>
             </ul>
         </div>
     </header>
     <div id="mainContainer">
         <!-- COLUMN 1: PEOPLE I'VE FRIENDED - FRIENDS LIST -->
         <section id="friendsList">
-            <div class="newFriendRow">Friends List
-                    <img src="https://randomuser.me/api/portraits/men/7.jpg" alt="" />
-                    <div class="info">
-                        <h3>Justin</h3>
-                        <h4>friends since June 24, 2016</h4>
-                    </div>
+            <div class="newFriendRow">
+                <h2>Friends List</h2>
+                <img src="https://randomuser.me/api/portraits/men/7.jpg" alt="" />
+                <div class="info">
+                    <h3>Justin</h3>
+                    <h4>friends since June 24, 2016</h4>
+                </div>
                 <div class="newFriendRow">
                     <img src="https://randomuser.me/api/portraits/women/7.jpg">
                     <div class="info">
-                        <h2>Sarah</h2>
-                        <h3>added on June 24, 2016</h3>
+                        <h3>Sarah</h3>
+                        <h4>added on June 24, 2016</h4>
                     </div>
                 </div>
+            </div>
         </section>
         <!-- FRIENDS I CAN ADD -->
         <section id="friendFeed">
-              <div class="myPeeps">Friend Feed
-              </div>
-          </div>
+            <h2>Friends Feed</h2>
         </section>
-        <script src="app.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- <section id="aboutFriendsView hidden"></section>
+      <section id="hobbiesView hidden"></section> -->
     </div>
+    <script src="app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </body>
 
 </html>
